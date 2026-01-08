@@ -1,7 +1,24 @@
-print("Fitness Tracker v0.1")
+print("Fitness Tracker v0.2")
+print("Type 'quit' to exit\n")
 
-name = input("What exercise did you do today? ")
-sets = input("How many sets? ")
-reps = input("How many reps? ")
+logs = []
 
-print(f"Logged: {name} — {sets} sets of {reps} reps")
+while True:
+    exercise = input("Exercise: ").strip()
+    if exercise.lower() == "quit":
+        break
+
+    sets = input("Sets: ").strip()
+    reps = input("Reps: ").strip()
+
+    logs.append({
+        "exercise": exercise,
+        "sets": sets,
+        "reps": reps
+    })
+
+    print("Logged.\n")
+
+print("\nWorkout Summary:")
+for log in logs:
+    print(f"- {log['exercise']}: {log['sets']} x {log['reps']}")
